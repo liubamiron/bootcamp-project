@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Curriculum Vitae</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body style="margin-bottom: 400px;">
+<body>
     <header>
-        <h1> CV/Portfolio</h1>
+        <h1><a href="#">CV/Portfolio</a></h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -17,24 +21,30 @@
         </nav>
     </header>
     <main>
+        <div class="left__section">
         <section id="about">
             <h2>About</h2>
                 <img  src="https://www.w3schools.com/howto/img_avatar2.png"  alt="avatar" width="100">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                     Dolore, molestias. Sapiente eligendi nobis provident numquam 
-                     nihil nemo alias nisi libero ad eaque!
-                     Laboriosam neque ab libero quia pariatur nobis sunt!</p>
+                <h3><i>Personal qualities </i></h3>
+                <summary>Opportunity to develop in different branches<br> 
+                   Good communication skills,<br> working in team<br>
+                   Flexible in my approach to work.
+                </summary>
         </section>
+    </div>
+    <div class="right__section">
         <section id="skills">
             <h2>Skills</h2>
-            <li>HTML</li>
+            <ul>
+            <li>HTML 5</li>
             <li>CSS</li>
-            <li>Bootstrap</li>
+            <li>Bootstrap v5</li>
             <li>JavaScript</li>
             <li>VueJS</li>
+        </ul>
         </section>
         <section id="experience">
-            <h2>Experience</h2>
+            <h3>Experience</h3>
             <table>
                 <thead>
                 
@@ -50,58 +60,79 @@
                     <td>Developmentaid</td>
                     <td>
                         <section>
-                            <h3>Learning HTML CSS</h3>
+                            <b>Bootcamp</b>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam ab fugit blanditiis placeat ipsa aut, incidunt nostrum adipisci possimus quisquam molestias! Quia sint cum tempora ut ex minus placeat animi.</p>
                                 
                         </section>
                     </td>
                 </tr>
                 <tr>
-                    <td> 2019-2020</td>
-                    <td>Other place</td>
+                    <td> 2017-2018</td>
+                    <td>Freelancer</td>
                     <td>
                         <details>
                             <summary>
-                                Position 1
+                                Targeting GoogleAdwords
                             </summary>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam ab fugit blanditiis placeat ipsa aut, incidunt nostrum adipisci possimus quisquam molestias! Quia sint cum tempora ut ex minus placeat animi.</p>
+                            
                                 
                         </details>
                         <details>
                             <summary>
-                                Position 2
+                                SEO
                             </summary>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam ab fugit blanditiis placeat ipsa aut, incidunt nostrum adipisci possimus quisquam molestias! Quia sint cum tempora ut ex minus placeat animi.</p>
                                 
                         </details>
+                    </td>
+                </tr>
+                    <tr>
+                    <td>2007-2012</td>
+                    <td>SRL Web-color</td>
+                    <td> 
+                        <!-- <details>
+                            <summary>
+                                SEO
+                            </summary>
+                            
+                        </details> -->
+                        <p>Link exchange, Google Ad words, buy and sell links. Analyzing competitors, Work with - seo soft. Optimizing web sites for google.com and yahoo.com.</p>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>2006-2007</td>
+                    <td>SRL Gofma Consulting</td>
+                    <td>
+                        <p>Appraiser</p>
                     </td>
                 </tr>
             </tbody>
             </table>
         </section>
         <section id="contact"> 
-            <h2>Contact</h2>
+            <h3>Contact</h3>
             <ul>
-                <li>Tel:<a href="tel:+22222222">Call me</a> </li>
+                <li>Tel:<a href="tel:+373157653">Call me</a> </li>
                 <li>Email: liuba.miron@gmail.com</li>
-                <li>Address<Address><br>
-                    Written by :<a href="#">LM</a><br>
-                    Visit us at: <br>
-                    Example.com <br>
-                    Box 564, disheyland<br>
-                    USA
+                <li>Address<Address>
+                    str.Petru Zadnipru, Chisinau<br>
+                    Moldova
                 </Address></li>
-                <li>Website : https://google.com</li>
+                <li>
+                Written by :<a href="#">Liuba</a><br>         
             </ul>
         </section>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, quisquam vero. Sunt voluptates in nam consequatur maiores placeat quam, tempora neque reprehenderit recusandae dolorum possimus consequuntur dolore, beatae ab labore?</p>
-        <aside style="width:40%; float:right; font-style:italic">
+    </div>
+</main>
+        <p>Eius, quisquam vero. Sunt voluptates in nam consequatur maiores placeat quam, tempora neque reprehenderit recusandae dolorum possimus consequuntur dolore, beatae ab labore?</p>
+        <aside>
+            
             <p>The Rough-skinned Newt defends itself with a deadly neurotoxin.</p>
         </aside>
         
         <p>Several species of salamander inhabit the temperate rainforest of the Pacific Northwest, including the Ensatina, the Northwestern Salamander and the Rough-skinned Newt. Most salamanders are nocturnal, and hunt for insects, worms and other small creatures.</p>
 
-        <figure style="margin:0">
+        <!-- <figure style="margin:0">
            <h3><figcaption>Listen to the T-Rex:</figcaption></h3> 
             <audio
                 controls
@@ -109,34 +140,30 @@
                     Your browser does not support the
                     <code>audio</code> element.
             </audio>
-        </figure>
-        <br>
-        <h3>Menu<nav class="menu"></h3>
-            <ul>
-              <li><a href="#">Main</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Contacts</a></li>
-            </ul>
-          </nav>
+        </figure> -->
           <br>
-          <h3><p>Choose your monster's colors:</p></h3>
+          <audio controls>
+            <source src="horse.ogg" type="audio/ogg">
+            <source src="horse.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+          </audio>
+          <br>
+          <p>Choose your favorite Web language:</p>
 
-<div>
-    <input type="color" id="head" name="head"
-           value="#e66465">
-    <label for="head">Head</label>
-</div>
+          <form>
+            <input type="radio" id="html" name="fav_language" value="HTML">
+            <label for="html">PHP</label><br>
+            <input type="radio" id="css" name="fav_language" value="CSS">
+            <label for="css">Java</label><br>
+            <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+            <label for="javascript">JavaScript</label>
+          </form> 
 
-<div>
-    <input type="color" id="body" name="body"
-            value="#f6b73c">
-    <label for="body">Body</label>
-</div>
 
           
-    </main>
+    
     <footer>
-        <div align="center"> Copyright &copy; 2021, Developmentaid </div>
+        <div> Copyright &copy; 2021, Developmentaid </div>
         
     </footer>
 </body>
