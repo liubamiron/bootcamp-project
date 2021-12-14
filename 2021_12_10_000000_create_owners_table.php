@@ -7,11 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateOwnersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+   
     public function up()
     {
         DB::statement(" CREATE TABLE `owners` (
@@ -25,11 +21,7 @@ class CreateOwnersTable extends Migration
         ");
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         DB::statement("DROP TABLE `owners`;
