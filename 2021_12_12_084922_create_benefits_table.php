@@ -15,7 +15,7 @@ class CreateBenefitsTable extends Migration
     {
         Schema::create('benefits', function (Blueprint $table) {
             $table->id();
-            $table->enum('name', ['WiFi', 'Garage', 'Autonomous heat sources']);
+            $table->string('name')->unique();
         });
     }
 
