@@ -14,21 +14,15 @@ class AlterImobilsTableRemoveColumn extends Migration
     public function up()
     {
         Schema::table('imobils', function (Blueprint $table) {
-            if (Schema::hasColumn('imobils','description')) {
+            if (Schema::hasColumn('imobils', 'description')) {
                 $table->dropColumn('description');
             }
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('imobils', function (Blueprint $table) {
-            $table->string('description')->after('balcony');
+             $table->text('description')->after('balcony');
         });
     }
 }
