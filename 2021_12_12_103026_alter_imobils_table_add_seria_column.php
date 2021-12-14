@@ -14,12 +14,12 @@ class AlterImobilsTableAddSeriaColumn extends Migration
      */
     public function up()
     {
-       Schema::table('imobils', function (Blueprint $table) {
-           $table->string('seria', 40)->default('143')
-           ->after('balcony');
+        Schema::table('imobils', function (Blueprint $table) {
+                $table->string('seria', 40)
+                      ->default('143')
+                      ->after('balcony');
 
-
-       });
+        });
     }
 
     /**
@@ -30,7 +30,7 @@ class AlterImobilsTableAddSeriaColumn extends Migration
     public function down()
     {
         Schema::table('imobils', function (Blueprint $table) {
-            $table->dropColumn('seria');
+                $table->dropColumn('seria');
         });
     }
 }
