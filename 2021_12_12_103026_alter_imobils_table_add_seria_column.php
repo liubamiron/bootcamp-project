@@ -29,6 +29,8 @@ class AlterImobilsTableAddSeriaColumn extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('imobils', function (Blueprint $table) {
+            $table->dropColumn('seria');
+        });
     }
 }
