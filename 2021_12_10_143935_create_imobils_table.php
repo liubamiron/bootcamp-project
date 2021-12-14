@@ -31,7 +31,7 @@ class CreateImobilsTable extends Migration
             KEY `owner_id` (`owner_id`),
             CONSTRAINT `imobils_ibfk_1` FOREIGN KEY (`owner_id`) REFERENCES `owners` (`id`)
             ON DELETE CASCADE ON UPDATE CASCADE
-          ) ENGINE=InnoDB 
+            ) ENGINE=InnoDB
             ");
     }
 
