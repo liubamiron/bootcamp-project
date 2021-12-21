@@ -20,7 +20,7 @@ class Address extends Model
     {
        
     
-    return $this->hasOne(Imobil::class);
+    return $this->belongsTo(Imobil::class);
     }
 
 
