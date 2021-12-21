@@ -16,7 +16,7 @@ class Benefit extends Model
     
     public function imobils()
     {
-        return $this->belongsToMany(Imobil::class);
+     return $this->belongsToMany(Imobil::class);
     }
 
 
