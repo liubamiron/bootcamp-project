@@ -45,5 +45,7 @@ Route::get('/appartments/item/', [ItemController::class, 'index'])->name('appart
 
 Route::get('/houses/item/', [ItemController::class, 'index'])->name('housesItem');
 
-Route::get('contacts', [ContactUsController::class, 'view'])->name('contactUs');
+Route::get('/contact', [ContactUsController::class, 'view'])->name('contactUs');
+
+Route::post('/contactUs', [ContactUsController::class, 'send'])->name('contactUs.send');
 
