@@ -31,9 +31,7 @@
                     <div class="form-group col-md-6">
                         <label for="name">Nume</label>
                         <input type="text" value="{{old('name')}}" required="required" class="form-control" name="name" id="name" placeholder="Nume">
-                        @error('name')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                    
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputState">Departament</label>
@@ -56,7 +54,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="name">Mesaj</label>
-                        {{-- fara spatii --}}
+                        <!-- fara spatii -->
                         <textarea class="form-control" name="message" id="message" cols="30" rows="10">{{old('message') }} </textarea>
                     </div>
                 </div>
