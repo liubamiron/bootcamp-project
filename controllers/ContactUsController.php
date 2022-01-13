@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Http\Request\ContactUsRequest;
 use App\Http\Controllers\RedirectResponse;
 class ContactUsController extends Controller
 {
