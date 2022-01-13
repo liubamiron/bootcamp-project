@@ -7,14 +7,15 @@ class ContactUsController extends Controller
     public function view(){
         return view(‘contacts.contactUs’);
     }
-    public function send(Request $request): RedirectResponse
+    public function send(ContactUsRequest $request): RedirectResponse
     {
         // dd($request->validated());
-        
+
         $data = $request->validated();
 
         \Log::debug($callback('test'), $data);
         
-        return redirect()->route(‘contactUs’);
+       
+        return redirect()->route('contactUs')->withInput($data);
     }
 }
