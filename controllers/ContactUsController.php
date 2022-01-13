@@ -18,9 +18,9 @@ class ContactUsController extends Controller
     {
         // dd($request->validated());
 
-        $callback = function (string $test): string {
-             return "{$test} input";
-         };
+        // $callback = function (string $test): string {
+        //      return "{$test} input";
+        //  };
 
 
         $data = $request->validated();
