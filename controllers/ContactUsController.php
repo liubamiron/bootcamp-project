@@ -9,7 +9,11 @@ class ContactUsController extends Controller
     }
     public function send(Request $request): RedirectResponse
     {
-        dd($request->validated());
+        // dd($request->validated());
+        
+        $data = $request->validated();
+
+        \Log::debug($callback('test'), $data);
         
         return redirect()->route(‘contactUs’);
     }
