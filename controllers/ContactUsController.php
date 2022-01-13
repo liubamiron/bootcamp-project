@@ -7,8 +7,10 @@ class ContactUsController extends Controller
     public function view(){
         return view(‘contacts.contactUs’);
     }
-    public function send(): RedirectResponse
+    public function send(Request $request): RedirectResponse
     {
+        dd($request->all());
+        
         return redirect()->route(‘contactUs’);
     }
 }
