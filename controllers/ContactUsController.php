@@ -39,8 +39,8 @@ class ContactUsController extends Controller
             ],
             function (Message $message) use ($data) {
                 $message->subject('message from ' . $data['email']);
-                $message->to('tech@baloon.app');
-                $message->from('allrent@baloon.app', 'Allrent mailer');
+                $message->to('rent_online@gmail.com');
+                $message->from('allrent@gmail.com', 'AllRent mailer');
         }
         );
 
