@@ -11,8 +11,6 @@ class ContactUsMailer
     private  Mailer $infrastructureMailer;
     private LoggerInterface $logger;
 
-   
-
 
     public function  __construct(Mailer $infrastructureMailer, LoggerInterface $logger)
     {
