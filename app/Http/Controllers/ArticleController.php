@@ -1,26 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Article;
-use App\Models\BlogCategory;
 use Illuminate\Http\Request;
-use Psr\Log\LoggerInterface;
+use App\Services\ModelLogger;
+
+
 
 class ArticleController extends Controller
 {
-    public function show($articleId, Request $request, LoggerInterface $logger) 
+    public function show($articleId, Request $request, ModelLogger $logger) 
     { 
         
-        $article = Article::findorFail($articleId);
+        $article = Article::findOrFail($articleId);
 
-         $user =$request->user();
-         $userRepresentation =$user ? "User with id {$user->id}" : "Uknown User";
-         $logger->info(
-             $userRepresentation . ' accesed ' . "article with {$articleId}",
-             ['id' => $articleId,
-             'title' =>$article->title],         );
+        $logger->logModel($user = $request->user(), $article);
 
-        
         return view('article.article', ['article' => $article]);
     }
 
