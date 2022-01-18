@@ -4,6 +4,7 @@ namespace App\Models;
 
 interface LoggableInterface
 {
+    
     // Get Loggable unique name for message generation
     // return string
 
