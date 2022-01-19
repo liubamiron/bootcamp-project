@@ -6,9 +6,10 @@ use App\Models\LoggableInterface;
 use App\Models\User;
 use Psr\Log\LoggerInterface;
 
+
 class ModelLogger
 {
-   
+    use UserRepresentationTrait;
 
     private LoggerInterface $logger;
 
@@ -20,12 +21,16 @@ class ModelLogger
 
     public function logModel(?User $user, LoggableInterface $loggable): void 
     {
-        $userRepresentation =$user ? " User with id {$user->id} " : " Uknown User ";
+        
 
             $this ->logger->info(
-                $userRepresentation . ' accesed ' . $loggable->convertToLoggableString(),
+            
+                $this->identifyUserRepresentation($user) . ' accesed ' . $loggable->convertToLoggableString(),
                 $loggable->getData(),
 
-            );
-    }
+                 );
+            }
+
+    
+    
 }
