@@ -2,17 +2,19 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
+// use App\Models\User;
 use App\Services\UserReprsenetationTrait;
 use Closue;
 use Illuminate\Http\Request;
-use Psr\Log\LoggerInterface;
+use App\Services\DummyRequestActivityLogger;
 
 class LogActivityMiddleware {
 
-    private LoggerInterface $logger;
+     use UserRepresentationTrait;
 
-    public function __construct(LoggerInterface $logger)
+    private DummyRequestActivityLogger $logger;
+
+    public function __construct(DummyRequestActivityLogge $logger)
     {
         $this->logger = $logger;
     }
@@ -20,17 +22,7 @@ class LogActivityMiddleware {
     public function handle($request, Closure $next, ?string $type = null)
     {
    
-
-        $user=$request->getUser();
-        $userRepresentation = $user ? "User with id {$user->id}" : 'Uknown User';
-
-        
-
-        $this->logger->debug(
-            $userRepresentation . 'made a request to' . ($type ?? 'uknown page'),
-            ['data placeholder']
-        );
-
+         $this->logger->logRequest($request, $type ?? 'uknown page');
 
     return $next ($request);
     }
