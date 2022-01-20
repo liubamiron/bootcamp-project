@@ -22,11 +22,11 @@ class ContactUsRequest extends FormRequest
                 'required',
                 'string', 
                 Rule::in(['administration', 'accounting', 'tehnicalDepartment', 'logistic']),
-        ],
+                ],
         'districts' => ['required', 'array', 'min:1', 'in:chisinau,orhei,straseni'],
         'message' => ['required', 'string', 'min:10'],
         'readTerms' => ['required'],
-    ];
+        ];
 
     }
 }
