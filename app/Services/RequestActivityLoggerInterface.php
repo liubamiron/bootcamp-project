@@ -5,6 +5,6 @@ use Illuminate\Http\Request;
 
 interface RequestActivityLoggerInterface
 {
-    public function logRequest(Request $request):void;
+    public function logRequest(Request $request, string $type):void;
     
 }
