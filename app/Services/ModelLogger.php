@@ -31,6 +31,17 @@ class ModelLogger
                  );
             }
 
+            public function logModel2(?User $user, LoggableInterface $loggable): void 
+            {
+                
+        
+                    $this ->logger->info(
+                    
+                        $this->identifyUserRepresentation($user) . ' accesed ' . $loggable->convertToTestString(),
+                        $loggable->getData(),
+        
+                         );
+                        }
     
     
 }
