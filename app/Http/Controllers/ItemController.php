@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Imobil;
-use App\Services\ModelLogger;
-
-
+use Illuminate\Http\Request;
+use Psr\Log\LoggerInterface;
 
 class ItemController extends Controller
 {
 
-   public function index($imobilId, Request $request, ModelLogger $logger) 
-     { 
+    public function index($imobilId, Request $request, LoggerInterface $logger)
+    {
 
-          $imobil= Imobil::findOrFail($imobilId);
-          
-         $logger->logModel2($user = $request->user(), $imobil);       
-   
-         return view('imobils.test', ['imobil' => $imobil]);
-     }
+        $imobil = Imobil::findOrFail($imobilId);
 
-     
+        $user = $request->user();
+        $userRepresentation = $user ? "User with id {$user->id}" : "Uknown User";
+        $logger->info(
+            $userRepresentation . ' accesed ' . "imobil with {$imobilId}",
+            ['id' => $imobilId,
+                'price' => $imobil->price], );
+
+        return view('imobils.test', ['imobil' => $imobil]);
+    }
+
 }
-
