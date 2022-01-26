@@ -8,9 +8,20 @@ class ProductionRequestActivityLogger extends AbstractRequestActivityLogger
 {
     protected function collectRequestData(Request $request): array
     {
-        return [$request->email,
-        $request->name, 
-        $request->message ];
+        $name = $request->name;
+        $email = $request->email;
+        $department = $request->department;
+        $urlWithQueryString = $request->fullUrl();
+
+
+        return [
+            'url' . $urlWithQueryString,
+            'name is: ' .$name,
+            'email is' . $email,
+            'department is' . $department,
+        ];
 
     }
+
+    
 }
