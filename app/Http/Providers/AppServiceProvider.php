@@ -20,20 +20,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //  $this->app->bind(RequestActivityLoggerInterface:: class, function(){
-         // return $this->app->make(DummyRequestActivityLogger::class);
-
-        
-
-
-      $this->app->bind(RequestActivityLoggerInterface::class, DummyRequestActivityLogger::class);
 
     if (config('app.env')==='production')  { 
         
-        $this->app->bind(RequestActivityLoggerInterface::class, ProductionRequestActivityLogger::class);
+     return   $this->app->bind(RequestActivityLoggerInterface::class, ProductionRequestActivityLogger::class);
        }
-       else  {
-        $this->app->bind(RequestActivityLoggerInterface::class, DebugRequestActivityLogger::class);
+       else   {
+        return $this->app->bind(RequestActivityLoggerInterface::class, DebugRequestActivityLogger::class);
        }
      
         
