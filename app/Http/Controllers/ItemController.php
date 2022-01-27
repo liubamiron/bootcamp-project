@@ -14,7 +14,7 @@ class ItemController extends Controller
 
         $imobil = Imobil::findOrFail($imobilId);
 
-        $logger->logModel2($user = $request->user(), $imobil);
+        $logger->logModelItem($user = $request->user(), $imobil);
 
         return view('imobils.test', ['imobil' => $imobil]);
     }
