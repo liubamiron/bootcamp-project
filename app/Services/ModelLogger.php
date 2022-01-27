@@ -31,7 +31,7 @@ class ModelLogger
                  );
             }
 
-            public function logModel2(?User $user, LoggableInterface $loggable): void 
+            public function logModelItem(?User $user, LoggableInterface $loggable): void 
             {
                 
         
