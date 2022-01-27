@@ -2,14 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Pagination\Paginator;
-use App\Services\RequestActivityLoggerInterface;
-use App\Services\ProductionRequestActivityLogger;
 use App\Services\DebugRequestActivityLogger;
-use App\Services\DummyRequestActivityLogger;
-
-
+use App\Services\ProductionRequestActivityLogger;
+use App\Services\RequestActivityLoggerInterface;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,15 +18,17 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
 
-    if (config('app.env')==='production')  { 
-        
-     return   $this->app->bind(RequestActivityLoggerInterface::class, ProductionRequestActivityLogger::class);
-       }
-       else   {
-        return $this->app->bind(RequestActivityLoggerInterface::class, DebugRequestActivityLogger::class);
-       }
-     
-        
+        $this->app->bind(RequestActivityLoggerInterface::class, function () {
+
+            if (config('app.env') === 'production') {
+
+                return $this->app->make(ProductionRequestActivityLogger::class);
+            } else {
+                return $this->app->make(DebugRequestActivityLogger::class);
+            }
+
+        });
+
     }
 
     /**
@@ -40,7 +39,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        //Paginator::defaultView('my-paginator');
 
     }
 }
