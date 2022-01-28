@@ -10,10 +10,7 @@ class DebugRequestActivityLogger extends AbstractRequestActivityLogger
 {
     protected function collectRequestData(Request $request): array
     {
-        return (array)$request->all(
-            'ip', 'bearerToken', 'fillUrl', 'name','email', 'type', 'districts', 'department','message');
-        
+        return ['ip' => $request->ip(), 'url' => $request->fullUrl(), 'method' => $request->method(), 'token is' => $request->bearerToken()];
     }
-    
-    
+
 }
