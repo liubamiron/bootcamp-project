@@ -3,24 +3,14 @@
 namespace App\Services;
 
 use Illuminate\Http\Request;
+use App\Models\Imobil;
 
 class ProductionRequestActivityLogger extends AbstractRequestActivityLogger
 {
     protected function collectRequestData(Request $request): array
     {
-        $name = $request->name;
-        $email = $request->email;
-        $department = $request->department;
-        $urlWithQueryString = $request->fullUrl();
-
-
-        return [
-            'url' . $urlWithQueryString,
-            'name is: ' .$name,
-            'email is' . $email,
-            'department is' . $department,
-        ];
-
+        return ['ip' => $request->ip(), 'url' => $request->fullUrl()];
+        
     }
 
     
