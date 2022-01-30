@@ -58,9 +58,6 @@ class Game extends Command
 
         $bad_numbers = $this->cacheRepository->get('Bad-numbers', []);
 
-        
-
-
         $executionCicle = True;
         $count = 1;
         $table = [];
@@ -125,9 +122,6 @@ class Game extends Command
         foreach ($bad_numbers as $key => $count) {
             $table2[] = [$key, $count];
         }
-        $this->table(['random nr.', 'count'], $table2);
-
-        
-    }
-    
+        $this->table(['random nr.', 'count'], $table2);       
+    }   
 }
