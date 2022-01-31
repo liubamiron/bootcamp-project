@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
-use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class Game extends Command
 {
@@ -13,7 +12,7 @@ class Game extends Command
      *
      * @var string
      */
-    protected $signature = 'game1';
+    protected $signature = 'game';
 
     /**
      * The console command description.
@@ -30,11 +29,11 @@ class Game extends Command
      *
      * @return void
      */
-    public function __construct(CacheRepository $cacheRepository, ConfigRepository $configRepository)
+    public function __construct(CacheRepository $cacheRepository)
     {
         parent::__construct();
         $this->cacheRepository = $cacheRepository;
-        $this->configRepository = $configRepository;
+        
     }
 
     /**
@@ -46,10 +45,15 @@ class Game extends Command
 
     public function handle()
     {
+
+        
         $diedStats = $this->cacheRepository->get('diedCount', 0);
         $surviveStats = $this->cacheRepository->get('surviveCount', 0);
 
         $bad_numbers = $this->cacheRepository->get('Bad-numbers', []);
+
+        
+
 
         $executionCicle = True;
         $count = 1;
@@ -57,10 +61,14 @@ class Game extends Command
         $table2 = [];
         $answer = 'survive';
         $res = 0;
+        $random = random_int(1, 6);
+        $random2 = random_int(1, 6);
+
+        
 
         while ($executionCicle) {
 
-            $random = $random = random_int(1, 6);
+            $random = random_int(1, 6);
 
             
             $bad_numbers[$random] = $bad_numbers[$random] ?? 0;
@@ -72,11 +80,13 @@ class Game extends Command
            
             $res = $this->ask("Pull the triger!");
 
-            if ($random === 1) {
+            if ($random === $random2) {
+                // if ($random === 1) 
+
                 $answer = 'die';
                 $table[] = [$answer, $count, $random];
                 $this->table(['answer', 'attempts', 'random_nr'], $table);
-                
+                $result = count($table); 
                 
 
                 $executionCicle = False;
@@ -106,15 +116,23 @@ class Game extends Command
             }
         } 
 
+        $this->info("bullet in a gun: {$random}");
+        $this->info("player was killed, from chamber
+        : {$random2}");
 
         $this->info("Died Statistic: {$diedStats}");
         $this->info("Survive Statistic: {$surviveStats}");
 
-        $this->info("Number how many times was randomized, statistics :");
+        $this->info("Bad Numbers, how many times was died :");
+
 
         foreach ($bad_numbers as $key => $count) {
             $table2[] = [$key, $count];
         }
-        $this->table(['random nr.', 'count'], $table2);       
-    }   
+
+
+        $this->table(['bad nr.', 'dad times'], $table2);
+
+    }
+    
 }
