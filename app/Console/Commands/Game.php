@@ -46,15 +46,8 @@ class Game extends Command
 
     public function handle()
     {
-
-        $lastVisit = $this->cacheRepository->get('lastGameVisit', 'never');
         $diedStats = $this->cacheRepository->get('diedCount', 0);
         $surviveStats = $this->cacheRepository->get('surviveCount', 0);
-
-
-        $this->cacheRepository->set('lastGameVisit', date(\DateTime::ATOM),);
-        
-        $this->info("Game visit last time: {$lastVisit}");
 
         $bad_numbers = $this->cacheRepository->get('Bad-numbers', []);
 
