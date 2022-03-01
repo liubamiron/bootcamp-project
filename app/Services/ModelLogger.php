@@ -29,8 +29,6 @@ class ModelLogger
                 $loggable->getData(),
 
                  );
-            }
-
-    
+    }
     
 }
