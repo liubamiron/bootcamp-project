@@ -4,14 +4,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\AppartmentController;
 use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\RegistrationController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ItemController;
-
-
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RegistrationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+
 
 
 
@@ -47,5 +47,11 @@ Route::get('/houses/item/', [ItemController::class, 'index'])->name('housesItem'
 
 Route::get('/contact', [ContactUsController::class, 'view'])->name('contactUs');
 
-Route::post('/contactUs', [ContactUsController::class, 'send'])->name('contactUs.send');
+
+
+
+Route::post('/contactUs', [ContactUsController::class, 'send'])->name('contactUs.send')
+->middleware('log.activity:sendContactUs');
+
+
 
